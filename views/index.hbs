@@ -1,28 +1,27 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>{{title}}</title>
-    <link rel="stylesheet" href="/stylesheets/style.css">
-</head>
+{{!-- Home page for CPlanify --}}
+<link rel="stylesheet" href="/stylesheets/style.css">
 
-<body class="home-body">
+<div class="homeBox">
 
-    <div class="home-container">
 
-        <h1 class="home-title">CPlanify</h1>
-        <p class="home-subtitle">
-            Your personal calendar and event planning app.
-        </p>
+    <h1 class="mainTitle">
+        {{title}}
+    </h1>
 
-        <div class="home-links">
-            <a href="/auth/register">Create Account</a>
-            <span>|</span>
-            <a href="/auth/login">Login</a>
-            <span>|</span>
-            <a href="/events/public">View Public Events</a>
-        </div>
+    <p class="welcomeTxt">
+        Plan stuff, keep track of events and just make life easier :)
+    </p>
+
+    <div class="homeBtns">
+
+        <a href="/auth/login" class="btnHome">
+            Login
+        </a>
+
+        <a href="/auth/register" class="btnHome sec">
+            Create Account
+        </a>
 
     </div>
 
-</body>
-</html>
+</div>

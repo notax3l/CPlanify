@@ -1,0 +1,32 @@
+{{!-- Login Page --}}
+<link rel="stylesheet" href="/stylesheets/style.css">
+
+<div class="formBox">
+
+    <h2 class="formTitle">
+        Login
+    </h2>
+
+    {{#if error_msg}}
+        <div class="msg err">{{error_msg}}</div>
+    {{/if}}
+
+    <form action="/auth/login" method="POST" class="theForm">
+
+        <label>Email</label>
+        <input type="email" name="email" required />
+
+        <label>Password</label>
+        <input type="password" name="password" required />
+
+        <button class="btnSub">
+            Login
+        </button>
+
+    </form>
+
+    <p class="smallLink">
+        No account? <a href="/auth/register">Create one</a>
+    </p>
+
+</div>
