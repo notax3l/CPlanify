@@ -1,13 +1,11 @@
-// Home page route
-
+console.log("indexes loaded");
 const express = require('express');
 const router = express.Router();
 
-// home page
-router.get('/', (req, res) => 
-{
+router.get('/', (req, res) => {
+  console.log("HITTING HOME PAGE ROUTE");  
   res.render('index', {
-    title: 'CPlanify - Plan Like a Boss'
+    title: 'CPlanify'
   });
 });
 

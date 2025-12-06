@@ -1,3 +1,98 @@
-<h1>CPlanify</h1>
-<p>Welcome to your planner app. The site is running!</p>
+{{!-- My Events Page --}}
+<link rel="stylesheet" href="/stylesheets/style.css">
 
+<div class="pageWrap">
+
+    {{!-- Page title --}}
+    <h2 class="pageTitle">My Events</h2>
+
+    {{!-- Success flash message --}}
+    {{#if success_msg}}
+        <div class="msg ok">
+            {{success_msg}}
+        </div>
+    {{/if}}
+
+    {{!-- Error flash message --}}
+    {{#if error_msg}}
+        <div class="msg err">
+            {{error_msg}}
+        </div>
+    {{/if}}
+
+    
+    <div style="margin-bottom: 18px;">
+    <a href="/events/public" class="btnSub">Public Events</a>
+    </div>
+
+
+
+
+    {{!-- Add event button --}}
+    <div class="addEventBox">
+        <a href="/events/add" class="btnSub">
+            + Add Event
+        </a>
+    </div>
+
+    {{!-- If user has events --}}
+    {{#if events.length}}
+
+        <div class="eventList">
+
+            {{!-- Loop through each event --}}
+            {{#each events}}
+
+                <div class="eventCard">
+
+                    {{!-- Event Title --}}
+                    <h3 class="evTitle">
+                        {{this.title}}
+                    </h3>
+
+                    {{!-- Event Date + Time --}}
+                    <p class="evDate">
+                        {{this.date}}
+                        {{#if this.startTime}}
+                            • {{this.startTime}} – {{this.endTime}}
+                        {{/if}}
+                    </p>
+
+                    {{!-- Event Description --}}
+                    <p class="evDesc">
+                        {{this.description}}
+                    </p>
+
+                    {{!-- Edit + Delete Buttons --}}
+                    <div class="evBtns">
+
+                        <a href="/events/edit/{{this._id}}" class="btnSmall">
+                            Edit
+                        </a>
+
+                        <form action="/events/delete/{{this._id}}" 
+                              method="POST" 
+                              style="display:inline;">
+                            <button class="btnSmall del">
+                                Delete
+                            </button>
+                        </form>
+
+                    </div>
+
+                </div>
+
+            {{/each}}
+
+        </div>
+
+    {{!-- If list is empty --}}
+    {{else}}
+
+        <p class="noEventsText">
+            No events yet… start by adding one.
+        </p>
+
+    {{/if}}
+
+</div>

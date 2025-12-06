@@ -20,6 +20,8 @@ const flash = require('connect-flash');
 
 // passport setup for authentication
 const passport = require('passport');
+require('./config/passport')(passport);
+
 
 
 
@@ -46,7 +48,7 @@ app.use(logger('dev'));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-// cookies + method override (for PUT/DELETE)
+// cookies
 app.use(cookieParser());
 app.use(methodOverride('_method'));
 
@@ -86,12 +88,12 @@ app.use('/', homeRoutes);
 app.use('/auth', authRoutes);
 app.use('/events', eventRoutes);
 
-// 404 handler
+// 404 handler= , always at last 
 app.use((req, res) => {
   res.status(404).render('error', { message: 'Page not found' });
 });
 
-// Error handler
+// GLOBAL ERROR HANDLER also at last
 app.use((err, req, res, next) => {
   res.status(err.status || 500).render('error', { message: err.message });
 });

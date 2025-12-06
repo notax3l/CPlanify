@@ -1,0 +1,68 @@
+{{!-- User Calendar Page --}}
+<link rel="stylesheet" href="/stylesheets/style.css">
+<a href="/" class="btnHome backBtn">← Home</a>
+<a href="/auth/logout" class="btnHomeNav logoutBtn">Logout</a>
+
+
+<div class="pageWrap">
+
+    <h2 class="pageTitle">
+        {{title}}
+    </h2>
+
+    {{!-- Flash messages --}}
+    {{#if success_msg}}
+        <div class="msg ok">{{success_msg}}</div>
+    {{/if}}
+
+    {{#if error_msg}}
+        <div class="msg err">{{error_msg}}</div>
+    {{/if}}
+
+    {{!-- Add Event Button --}}
+    <a href="/events/add" class="btnSub" style="margin-bottom: 20px;">
+        + Add Event
+    </a>
+
+    {{!-- Calendar container --}}
+    <div id="userCal" class="calendarBox"></div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+        const spot = document.getElementById('userCal');
+
+        console.log("Calendar spot found?", spot); 
+
+        const cal = new FullCalendar.Calendar(spot, {
+            initialView: 'dayGridMonth',
+            height: "auto",
+            events: '/events/data',  //takes back to the date route to get user's events
+
+            eventClick: function(info) {
+                const id = info.event.extendedProps._id || info.event.id;
+                console.log("Clicked event ID:", id);
+
+                const choice = confirm(
+                    `Event: ${info.event.title}\n\nClick OK to EDIT\nClick CANCEL to DELETE`
+                );
+
+                if (choice) {
+                    window.location.href = `/events/edit/${id}`;
+                } else {
+                    if (confirm("Are you sure you want to delete this event?")) {
+                        fetch(`/events/delete/${id}`, {
+                            method: "POST"
+                        }).then(() => cal.refetchEvents());
+                    }
+                }
+            }
+        });
+
+        cal.render();
+    });
+</script>

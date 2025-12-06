@@ -1,6 +1,6 @@
 // Event model for CPlanify
 // this is the file that will contain event details like title, date, time, description, color, user etc.
-//basically the funcitonaliy of the site
+
 
 const mongoose = require('mongoose');
 

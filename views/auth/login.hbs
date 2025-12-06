@@ -7,8 +7,17 @@
         Login
     </h2>
 
+    {{!-- flash errors (if any) --}}
     {{#if error_msg}}
         <div class="msg err">{{error_msg}}</div>
+    {{/if}}
+
+    {{#if success_msg}}
+        <div class="msg ok">{{success_msg}}</div>
+    {{/if}}
+
+    {{#if error}}
+        <div class="msg err">{{error}}</div>
     {{/if}}
 
     <form action="/auth/login" method="POST" class="theForm">

@@ -1,0 +1,25 @@
+{{!-- Public Calendar Page --}}
+<link rel="stylesheet" href="/stylesheets/style.css">
+
+<h2 class="pageTitle">Public Calendar</h2>
+
+<div id="publicCal" style="max-width: 1100px; margin: 0 auto; padding-bottom: 40px;"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+
+    const spot = document.getElementById('publicCal');
+
+    const cal = new FullCalendar.Calendar(spot, {
+      initialView: 'dayGridMonth',
+      height: "auto",
+      events: '/events/data',   
+      eventColor: '#3b82f6',    // nice blue
+      displayEventTime: false
+    });
+
+    cal.render();
+  });
+</script>

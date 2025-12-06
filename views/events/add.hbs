@@ -1,1 +1,68 @@
-d
+{{!-- Add Event Page --}}
+<link rel="stylesheet" href="/stylesheets/style.css">
+
+<div class="formBox">
+
+    <h2 class="formTitle">
+        Add New Event
+    </h2>
+
+    {{!-- show flash messages --}}
+    {{#if error_msg}}
+        <div class="msg err">{{error_msg}}</div>
+    {{/if}}
+
+    <form action="/events/add" method="POST" class="theForm">
+
+        <label>Title</label>
+        <input 
+            type="text" 
+            name="title" 
+            placeholder="Event title" 
+            required
+        />
+
+        <label>Date</label>
+        <input 
+            type="date" 
+            name="date" 
+            required
+        />
+
+        <label>Start Time</label>
+        <input 
+            type="time" 
+            name="startTime"
+        />
+
+        <label>End Time</label>
+        <input 
+            type="time" 
+            name="endTime"
+        />
+
+        <label>Description</label>
+        <textarea 
+            name="description" 
+            rows="3"
+            placeholder="Short description"
+        ></textarea>
+
+        <label>Color</label>
+        <input 
+            type="color" 
+            name="color" 
+            value="#ff7f50"
+        />
+
+        <button class="btnSub">
+            Add Event
+        </button>
+
+    </form>
+
+    <p class="smallLink">
+        <a href="/events">Back to My Events</a>
+    </p>
+
+</div>

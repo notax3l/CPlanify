@@ -4,13 +4,22 @@
 <div class="formBox">
 
     <h2 class="formTitle">
-        Register  
+        Create Account
     </h2>
+    <h3>
+        Please fill in the form to create an account
+    </h3>
 
+    {{!-- error list --}}
     {{#if errors}}
         {{#each errors}}
             <div class="msg err">{{this.msg}}</div>
         {{/each}}
+    {{/if}}
+
+    {{!-- flash message --}}
+    {{#if error_msg}}
+        <div class="msg err">{{error_msg}}</div>
     {{/if}}
 
     <form action="/auth/register" method="POST" class="theForm">

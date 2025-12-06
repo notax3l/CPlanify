@@ -1,125 +1,209 @@
-/* main styling for cplanify    
-   by tanishq :)  
-*/
-
-body{
-    margin:0;
-    padding:0;
-    font-family: Arial, sans-serif;
-    background:#f2f2f2;
+/* ===== GLOBAL ===== */
+body {
+    font-family: 'Arial Black', Arial, sans-serif;
+    background: #f5e8d3;
+    color: #e63928;
+    margin: 0;
+    padding: 0;
 }
 
-/* home page box */
-.homeBox{
-    width:90%;
-    max-width:600px;
-    margin:50px auto;
-    padding:30px;
-    background:white;
-    border-radius:8px;
-    box-shadow:0 0 10px rgba(0,0,0,.1);
-    text-align:center;
+/* Center Content Pages */
+.pageWrap, .formBox {
+    width: 94%;
+    max-width: 900px;
+    margin: 30px auto;
 }
 
-.mainTitle{
-    font-size:32px;
-    margin-bottom:10px;
+/* ===== HEADINGS ===== */
+.mainTitle, .pageTitle, .formTitle {
+    font-size: 38px;
+    letter-spacing: 2px;
+    color: #e63928;
+    text-align: center;
+    font-weight: 900;
+    margin-bottom: 25px;
 }
 
-.welcomeTxt{
-    font-size:15px;
-    margin-bottom:25px;
+/* ===== BUTTONS ===== */
+.btnHome, .btnHomeNav, .btnSub, .btnSmall {
+    display: inline-block;
+    background: #e63928;
+    color: #f5e8d3;
+    padding: 10px 18px;
+    border-radius: 6px;
+    border: 2px solid #e63928;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.25s;
 }
 
-/* buttons for home */
-.homeBtns{
-    display:flex;
-    justify-content:center;
-    gap:15px;
+.btnHome:hover, .btnHomeNav:hover, .btnSub:hover, .btnSmall:hover {
+    background: transparent;
+    color: #e63928;
 }
 
-.btnHome{
-    padding:10px 18px;
-    background:#0055ff;
-    color:white;
-    text-decoration:none;
-    border-radius:5px;
-    font-size:15px;
+.btnSmall.del {
+    background: transparent;
+    border-color: #e63928;
+    color: #e63928;
 }
 
-.btnHome.sec{
-    background:#333;
+.btnSmall.del:hover {
+    background: #e63928;
+    color: #f5e8d3;
 }
 
-/* form pages */
-.formBox{
-    width:90%;
-    max-width:450px;
-    margin:50px auto;
-    padding:25px;
-    background:white;
-    border-radius:8px;
-    box-shadow:0 0 8px rgba(0,0,0,.1);
+/* ===== FORMS ===== */
+.formBox {
+    background: #f5e8d3;
+    border: 3px solid #e63928;
+    padding: 28px;
+    border-radius: 12px;
 }
 
-.formTitle{
-    font-size:26px;
-    margin-bottom:20px;
-    text-align:center;
+.theForm label {
+    font-weight: bold;
+    margin-bottom: 6px;
 }
 
-.theForm{
-    display:flex;
-    flex-direction:column;
-    gap:12px;
+.theForm input, .theForm textarea, .theForm select {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #e63928;
+    background: #f5e8d3;
+    color: #e63928;
+    border-radius: 6px;
+    margin-bottom: 14px;
+    font-size: 14px;
 }
 
-.theForm label{
-    font-size:14px;
+/* ===== FLASH MESSAGES ===== */
+.msg {
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 16px;
+    font-weight: bold;
 }
 
-.theForm input{
-    padding:10px;
-    border:1px solid #ccc;
-    border-radius:5px;
+.msg.ok {
+    background: #e6d7bd;
 }
 
-/* submit button */
-.btnSub{
-    padding:10px;
-    background:#0055ff;
-    color:white;
-    border:none;
-    border-radius:5px;
-    cursor:pointer;
-    margin-top:5px;
+.msg.err {
+    background: #f5c2c0;
 }
 
-.btnSub:hover{
-    opacity:.9;
+/* ===== EVENT LIST CARDS ===== */
+.eventCard {
+    border: 3px solid #e63928;
+    padding: 18px;
+    border-radius: 12px;
+    background: #f5e8d3;
 }
 
-/* small links */
-.smallLink{
-    margin-top:15px;
-    font-size:14px;
-    text-align:center;
+.evTitle {
+    font-size: 20px;
+    font-weight: bold;
 }
 
-/* flash messages */
-.msg{
-    padding:10px;
-    margin-bottom:10px;
-    border-radius:4px;
-    font-size:14px;
+.evDate, .evDesc {
+    color: #e63928;
+    font-weight: bold;
+    margin: 6px 0;
 }
 
-.msg.err{
-    background:#ffcccc;
-    border:1px solid #ff8888;
+/* ===== GRID LISTING ===== */
+.eventList {
+    display: grid;
+    gap: 20px;
 }
 
-.msg.succ{
-    background:#ccffcc;
-    border:1px solid #66cc66;
+/* ===== FULLCALENDAR THEME ===== */
+#userCal, #publicCal {
+    background: #f5e8d3;
+    border: none;
+    padding: 20px;
+}
+
+.fc-header-toolbar {
+    color: #e63928;
+    font-weight: bold;
+}
+
+.fc .fc-button-primary {
+    background: #e63928;
+    border: none;
+    color: #f5e8d3;
+    font-weight: bold;
+}
+
+.fc .fc-button-primary:hover {
+    background: transparent;
+    border: 2px solid #e63928;
+    color: #e63928;
+}
+
+.fc-daygrid-day {
+    border: 2px solid #e63928 !important;
+}
+
+.fc-col-header-cell {
+    color: #e63928;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* Event bubbles */
+.fc-event {
+    background: #e63928 !important;
+    border: none !important;
+    color: #f5e8d3 !important;
+    font-weight: bold;
+}
+
+/* ===== NAV BUTTONS ON CALENDAR ===== */
+.calTopBar {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+.homeWrap {
+    text-align: center;
+    margin-top: 110px;
+}
+
+.homeTitle {
+    font-size: 70px;
+    color: #e63928;
+    font-weight: 900;
+    letter-spacing: 4px;
+    margin-bottom: 10px;
+}
+
+.homeSub {
+    font-size: 20px;
+    color: #e63928;
+    font-weight: bold;
+    margin-bottom: 40px;
+    letter-spacing: 1px;
+}
+
+.homeBtns {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.homeBtns a.btnHome {
+    min-width: 180px;
+}
+
+.signature {
+    margin-top: 50px;
+    font-family: "Neue Haas Grotesk Display Pro Bold", sans-serif;
+    font-size: 14px;
+    color: #E63929;
+    opacity: 0.85;
+    letter-spacing: 1px;
 }
