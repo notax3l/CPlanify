@@ -1,19 +1,17 @@
-//This is the database connection file
-// connecting my app to MongoDB 
+console.log("db.js loaded");
 
+// database connection file
 const mongoose = require('mongoose');
 
-// taking the connection string from .env
-const mongoLink = process.env.MONGO_URI;
+// take the connection string from .env
+const mongoLink = process.env.CONNECTION_STRING_MONGODB;
 
-// trying to connect to mongo
+// connect to MongoDB
 mongoose.connect(mongoLink)
   .then(() => {
-    //confirmation message
     console.log('MongoDB is connected successfully!');
   })
   .catch((err) => {
-    //error message
     console.log('MongoDB connection problem:', err);
   });
 

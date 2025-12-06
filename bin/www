@@ -1,0 +1,64 @@
+#!/usr/bin/env node
+
+// www file - starts the CPlanify server
+
+const app = require('../app');
+console.log("www file loaded");
+const http = require('http');
+
+// normalize port (default: 3000)
+function normalizePort(val) {
+  const port = parseInt(val, 10);
+
+  if (isNaN(port)) return val;      // named pipe
+  if (port >= 0) return port;       // valid port
+  return false;
+}
+
+const port = normalizePort(process.env.PORT || '3000');
+app.set('port', port);
+
+// create server
+const server = http.createServer(app);
+
+// start listening
+server.listen(port);
+server.on('error', onError);
+server.on('listening', onListening);
+
+// error handling
+function onError(error) {
+  if (error.syscall !== 'listen') throw error;
+
+  const bind = typeof port === 'string'
+    ? 'Pipe ' + port
+    : 'Port ' + port;
+
+  switch (error.code) {
+    case 'EACCES':
+      console.error(bind + ' needs elevated privileges');
+      process.exit(1);
+      break;
+
+    case 'EADDRINUSE':
+      console.error(bind + ' is already in use');
+      process.exit(1);
+      break;
+
+    default:
+      throw error;
+  }
+}
+
+// when server starts successfully
+function onListening() {
+ 
+    console.log("Listening event fired");
+
+  const addr = server.address();
+  const bind = typeof addr === 'string'
+    ? 'pipe ' + addr
+    : 'port ' + addr.port;
+
+  console.log('CPlanify server running on ' + bind);
+}

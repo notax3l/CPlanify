@@ -1,0 +1,41 @@
+/* Home Page Styling */
+
+.home-body {
+    font-family: Arial, sans-serif;
+    background: #fafafa;
+    margin: 0;
+    padding: 40px;
+    text-align: center;
+}
+
+.home-container {
+    max-width: 700px;
+    margin: auto;
+}
+
+.home-title {
+    font-size: 48px;
+    margin-bottom: 10px;
+    color: #222;
+}
+
+.home-subtitle {
+    font-size: 20px;
+    color: #444;
+    margin-bottom: 30px;
+}
+
+.home-links a {
+    font-size: 18px;
+    text-decoration: none;
+    color: #0066cc;
+    margin: 0 10px;
+}
+
+.home-links a:hover {
+    text-decoration: underline;
+}
+
+.home-links span {
+    color: #888;
+}

@@ -1,3 +1,5 @@
+console.log("app.js loaded");
+
 // CPlanify - main app file (app.js)
 //By- Tanishq Pratap Singh (200587638)
 
@@ -17,7 +19,10 @@ const flash = require('connect-flash');
 
 
 // passport setup for authentication
-const passport = require('./config/passport');
+const passport = require('passport');
+
+
+
 
 // connect to MongoDB using Mongoose
 require('./config/db');
@@ -72,6 +77,7 @@ app.use((req, res, next) => {
   res.locals.success_msg = req.flash('success_msg');
   res.locals.error_msg = req.flash('error_msg');
   res.locals.error = req.flash('error');
+
   next();
 });
 
